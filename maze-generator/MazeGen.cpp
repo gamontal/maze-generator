@@ -20,7 +20,7 @@ int CellIdx()
 {
 	return g_PtX + NumCells * g_PtY;
 }
-////////////////////////////////////////////////////////////////////////////
+
 std::random_device rd;
 std::mt19937 gen(rd());
 std::uniform_int_distribution<> dis(0, NumCells - 1);
@@ -33,7 +33,7 @@ int RandomInt4()
 {
 	return static_cast<int>(dis4(gen));
 }
-////////////////////////////////////////////////////////////////////////////
+
 enum eDirection
 {
 	eDirection_Invalid = 0,
@@ -42,8 +42,7 @@ enum eDirection
 	eDirection_Down = 4,
 	eDirection_Left = 8
 };
-// 0 1 2 3 4 5 6 7 8
-// U R D L
+
 int Heading_X[9] = { 0, 0, +1, 0, 0, 0, 0, 0, -1 };
 int Heading_Y[9] = { 0, -1, 0, 0, +1, 0, 0, 0, 0 };
 int Mask[9] = {
@@ -57,7 +56,7 @@ int Mask[9] = {
 	0,
 	eDirection_Right | eDirection_Right << 4
 };
-////////////////////////////////////////////////////////////////////////////
+
 bool IsDirValid(eDirection Dir)
 {
 	int NewX = g_PtX + Heading_X[Dir];
